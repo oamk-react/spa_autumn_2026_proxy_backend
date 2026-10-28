@@ -10,6 +10,8 @@ import Footer from './components/footer/Footer'
 import { Route, Routes } from 'react-router'
 
 function App() {
+  const [sourceCurrency, setSourceCurrency] = useState('SEK')
+
   return (
     <>
       <Navbar />
@@ -19,7 +21,7 @@ function App() {
           <Route 
             path="/"
             exact
-            element={<Home />}
+            element={<Home currency={sourceCurrency} />}
           />
           <Route 
             path="/about"
@@ -27,7 +29,7 @@ function App() {
           />
           <Route 
             path="/settings"
-            element={<Settings />}
+            element={<Settings currency={sourceCurrency} setCurrency={setSourceCurrency}/>}
           />
           <Route path="/*" element={<NotFound />} />
         </Routes>
